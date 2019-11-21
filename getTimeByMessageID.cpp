@@ -5,6 +5,9 @@
 #include <cmath>
 #include <iomanip> //fixed << setprecision(10)
 
+#include <sstream> // std::stringstream
+#include <bitset>  // std::bitset<N>
+
 using namespace std;
 
 #define rep(i,n) for(int (i)=0;(i)<(n);(i)++)
@@ -13,5 +16,13 @@ typedef long long ll;
 typedef vector<int> vi;
 
 int main(){
+    ll message_id;
+    cin >> message_id; //175928847299117063
+
+    stringstream ss;
+    ss << bitset<64>(message_id);
+    string message_id_bin = ss.str();
+    cout << message_id_bin << endl;
+
     return 0;
 }
