@@ -38,12 +38,13 @@ int main(){
     ll timestamp_ms = ll(timestamp + 1420070400000);
     cout << timestamp_ms << endl;
 
-    time_t unix_timestamp = 1462015105;
+    int unix_timestamp_ms = timestamp_ms % 1000;
+    time_t unix_timestamp = timestamp_ms / 1000;
     tm *tm_unix = gmtime(&unix_timestamp);
 	// cout << asctime(tm_unix);
     cout << "min: " << tm_unix->tm_min << " ";
     cout << "sec: " << tm_unix->tm_sec << " ";
-    cout << "ms: " << timestamp_ms % 1000 << endl;
+    cout << "ms: " << unix_timestamp_ms % 1000 << endl;
 
     return 0;
 }
