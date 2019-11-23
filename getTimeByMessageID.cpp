@@ -8,6 +8,7 @@
 #include <sstream> // std::stringstream
 #include <bitset>  // std::bitset<N>
 #include <stdlib.h>
+#include <ctime>
 
 using namespace std;
 
@@ -33,6 +34,13 @@ int main(){
     
     long timestamp = strtol(timestamp_bin, NULL, 2);
     cout << timestamp << endl;
+
+    ll timestamp_ms = ll(timestamp + 1420070400000);
+    cout << timestamp_ms << endl;
+
+    time_t previous_time = 1462015105;
+    tm *tm_previous = gmtime(&previous_time);
+	cout << asctime(tm_previous);
 
     return 0;
 }
