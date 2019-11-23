@@ -7,6 +7,7 @@
 
 #include <sstream> // std::stringstream
 #include <bitset>  // std::bitset<N>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -24,14 +25,14 @@ int main(){
     string message_id_bin = ss.str();
     cout << message_id_bin << endl;
 
-    string timestamp_bin;
+    char timestamp_bin[42];
     for(int i = 0; i < 42; i++){
         timestamp_bin[i] = message_id_bin[i];
     }
-    for(int i = 0; i < 42; i++){
-        cout << timestamp_bin[i];
-    }
-    puts("");
+    cout << timestamp_bin << endl;
+    
+    long timestamp = strtol(timestamp_bin, NULL, 2);
+    cout << timestamp << endl;
 
     return 0;
 }
