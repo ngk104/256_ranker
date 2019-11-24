@@ -12,16 +12,17 @@ const client = new discord.Client();
 
 client.on('ready', message =>
 {
+  client.user.setPresence({ game: { name: 'with discord.js' } });
 	console.log('bot is ready!');
 });
 
 client.on('message', message =>
 {
-	if(message.isMemberMentioned(client.user))
-	{
-		message.reply( '呼びましたか？' );
-		return;
-	}
+  if(message.isMemberMentioned(client.user) && message.author != client.user)
+  {
+    message.reply(message.id);
+    return;
+  }
 });
 
 if(process.env.DISCORD_BOT_TOKEN == undefined)
