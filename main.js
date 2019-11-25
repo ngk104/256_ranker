@@ -12,7 +12,7 @@ const client = new discord.Client();
 
 client.on('ready', message =>
 {
-  client.user.setPresence({ game: { name: 'with discord.js' } });
+  client.user.setPresence({ game: { name: '見ているぞ' } });
 	console.log('bot is ready!');
 });
 
