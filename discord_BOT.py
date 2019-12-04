@@ -1,7 +1,7 @@
 import discord
 import getTimeByMessageId
 
-TOKEN = 'NjQ4MzAyNDMxODQyODYxMDg1.XeSZFw.A90REQNTSuzulpthppBxiSVG0Fs'
+TOKEN = ''
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
