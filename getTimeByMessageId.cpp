@@ -10,6 +10,9 @@
 #include <stdlib.h>
 #include <ctime>
 
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+
 using namespace std;
 
 #define rep(i,n) for(int (i)=0;(i)<(n);(i)++)
@@ -17,9 +20,9 @@ using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
 
-int main(){
-    ll message_id;
-    cin >> message_id; //175928847299117063
+ll id2time(ll id){
+    ll message_id = id;
+    //cin >> message_id; //ex)175928847299117063
 
     stringstream ss;
     ss << bitset<64>(message_id);
@@ -46,5 +49,13 @@ int main(){
     cout << "sec: " << tm_unix->tm_sec << " ";
     cout << "ms: " << unix_timestamp_ms % 1000 << endl;
 
-    return 0;
+    return tm_unix->tm_min*100000 + tm_unix->tm_sec*1000 + unix_timestamp_ms % 1000;
+}
+
+namespace py = pybind11;
+PYBIND11_PLUGIN(getTimeByMessageId) {
+    py::module m("getTimeByMessageId", "by pybind11");
+    m.def("id2time", &id2time);
+
+    return m.ptr();
 }
